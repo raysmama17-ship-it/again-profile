@@ -1,0 +1,183 @@
+/* 01. 색상·크기 변수: 이곳을 수정하면 사이트 전체에 반영됩니다. */
+:root {
+  --color-primary: #6af606;
+  --color-dark: #171616;
+  --color-education: #2b2e2b;
+  --color-white: #ffffff;
+  --color-text: #171616;
+  --color-muted: #b8b8b8;
+  --color-line: #c8c8c8;
+  --color-dark-line: #747774;
+  --color-hero: #acaaab;
+  --color-header: #acaaab;
+  --font-main: 'Noto Sans KR', sans-serif;
+  --header-height: 115px;
+  --page-width: 780px;
+  --content-width: 660px;
+  --side-space: 60px;
+  --color-surround: #ffffff;
+  --color-form-background: #f2f3f2;
+  --color-placeholder: #777777;
+  --color-error: #b42318;
+}
+
+/* 02. 기본 초기화와 공통 스타일 */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+body {
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-surround);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+/* PC에서는 페이지 전체를 780px로 가운데 정렬하고, 작은 화면에서는 축소 */
+main, .site-footer { width: min(100%, var(--page-width)); margin-inline: auto; }
+main { background: var(--color-white); }
+/* 사이트 내부 색상은 유지하고 페이지 바깥 여백만 기기 모드에 맞춤 */
+@media (prefers-color-scheme: dark) {
+  :root { --color-surround: #000000; }
+}
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+a:focus-visible, button:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 5px;
+}
+.container { width: min(calc(100% - var(--side-space) * 2), var(--content-width)); margin-inline: auto; }
+.section-space { padding-block: 44px; }
+h2 { margin-bottom: 24px; font-size: 28px; font-weight: 900; line-height: 1.3; letter-spacing: -0.05em; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0;
+  margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.skip-link { position: fixed; top: 8px; left: 16px; z-index: 100; padding: 10px 18px; background: var(--color-white); transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+
+/* 03. 고정 헤더: 스크롤 전후 모두 지정한 회색 배경 유지 */
+.site-header {
+  position: fixed; top: 0; left: 50%; width: min(100%, var(--page-width));
+  transform: translateX(-50%); z-index: 50; height: var(--header-height);
+  color: var(--color-white); background: var(--color-header);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.site-header.is-scrolled, .site-header.menu-open { background: var(--color-header); box-shadow: 0 1px 0 rgba(255,255,255,0.1); }
+.header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-logo { flex-shrink: 0; line-height: 1; }
+.site-logo img { width: 78px; height: 78px; }
+.primary-nav ul { display: flex; align-items: center; }
+.primary-nav li + li::before { content: '|'; padding-inline: 12px; opacity: 0.6; }
+.primary-nav a { display: inline-block; padding-block: 12px; font-size: 17px; font-weight: 700; }
+.primary-nav a:hover { color: var(--color-primary); }
+.menu-toggle { display: none; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid rgba(255,255,255,0.5); border-radius: 8px; color: inherit; background: transparent; }
+.menu-icon { font-size: 28px; line-height: 1; }
+
+/* 04. 소개: 메인 이미지를 자르지 않고 전체 표시 */
+.about-section { padding-top: var(--header-height); background: var(--color-hero); }
+.hero-image { width: 100%; max-width: var(--page-width); margin-inline: auto; }
+
+/* 05. 경력: PC에서는 회사·기간·담당 업무를 세 열로 표시 */
+.career-section { background: var(--color-primary); }
+.career-list > li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.75fr); gap: 20px; padding-block: 16px; align-items: start; }
+.career-list > li + li { border-top: 1px solid var(--color-white); }
+.career-list h3 { font-size: 16px; font-weight: 800; letter-spacing: -0.05em; }
+.career-period, .career-description { font-size: 14px; }
+.career-period, .career-description { color: var(--color-white); font-weight: 700; line-height: 1.65; }
+.career-period { white-space: nowrap; }
+
+/* 06. 역량: 목록과 노트북 이미지 */
+.skills-layout { display: grid; grid-template-columns: minmax(0, 1fr) 207px; align-items: center; gap: 40px; }
+.divided-list > li { padding-block: 16px; font-weight: 500; }
+.divided-list > li + li { border-top: 1px solid var(--color-line); }
+.notebook-image { width: 100%; max-width: 207px; justify-self: end; }
+
+/* 07. 교육·자격: 어두운 배경과 세 열 배치 */
+.education-section { background: var(--color-education); color: var(--color-white); }
+.education-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 154px; gap: 32px; align-items: start; }
+.education-section .divided-list { color: var(--color-muted); }
+.education-section .divided-list > li + li { border-color: var(--color-dark-line); }
+.certification-image { width: 100%; max-width: 154px; align-self: center; justify-self: end; }
+
+/* 08. 문의: 입력 폼과 입력 확인 결과 */
+.contact-section { min-height: 350px; padding-bottom: 110px; }
+.contact-intro { margin-bottom: 24px; color: var(--color-primary); font-weight: 700; }
+#contact-form { display: grid; gap: 10px; padding: 24px; background: var(--color-form-background); }
+#contact-form label { margin-top: 10px; font-weight: 700; }
+#contact-form label:first-child { margin-top: 0; }
+#contact-form input, #contact-form textarea {
+  width: 100%; min-width: 0; padding: 14px; border: 1px solid var(--color-line);
+  border-radius: 8px; color: var(--color-text); background: var(--color-white); font: inherit;
+}
+#contact-form textarea { min-height: 150px; resize: vertical; }
+#contact-form input::placeholder, #contact-form textarea::placeholder { color: var(--color-placeholder); opacity: 1; }
+#contact-form input:focus-visible, #contact-form textarea:focus-visible { outline: 2px solid var(--color-text); outline-offset: 2px; }
+#contact-form [aria-invalid="true"] { border-color: var(--color-error); }
+#contact-form button {
+  min-height: 48px; margin-top: 12px; padding: 12px 18px; border: 0; border-radius: 8px;
+  color: var(--color-dark); background: var(--color-primary); font-weight: 800;
+}
+#contact-form button:hover:not(:disabled) { filter: brightness(0.95); }
+#contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+#form-msg { margin: 0; font-size: 14px; }
+#form-msg:empty { display: none; }
+#form-msg.is-error { color: var(--color-error); }
+
+/* 09. 코끼리 위로 버튼과 푸터 */
+.back-to-top { position: fixed; right: max(24px, calc((100vw - var(--page-width)) / 2 + 24px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 40; width: 72px; border-radius: 8px; transition: transform 0.2s ease; }
+.back-to-top:hover { transform: translateY(-4px); }
+.site-footer { padding-block: 30px; color: var(--color-muted); background: var(--color-dark); text-align: center; }
+.site-footer p { padding-inline: 48px; font-size: 14px; font-weight: 500; }
+
+/* 10. 태블릿: 메뉴는 계속 표시하고 콘텐츠 간격 조정 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root { --side-space: 36px; }
+  .primary-nav li + li::before { padding-inline: 8px; }
+  .primary-nav a { font-size: 15px; }
+  .career-list > li { grid-template-columns: 1.1fr 1fr 1.5fr; gap: 16px; }
+  .career-list h3, .career-period, .career-description { font-size: 14px; }
+  .skills-layout { grid-template-columns: minmax(0, 1fr) 207px; gap: 32px; }
+  .education-layout { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) 140px; gap: 24px; }
+  .education-section .divided-list { font-size: 14px; }
+}
+
+/* 11. 휴대폰: 햄버거 메뉴, 목록 세로 배치 */
+@media (max-width: 767px) {
+  :root { --side-space: 24px; }
+  .site-logo img { width: 68px; height: 68px; }
+  .menu-toggle:not([hidden]) { display: inline-flex; }
+  .primary-nav {
+    position: absolute; top: var(--header-height); inset-inline: 0;
+    padding: 12px var(--side-space) 24px; color: var(--color-white); background: var(--color-dark);
+    max-height: calc(100dvh - var(--header-height)); overflow-y: auto;
+  }
+  .primary-nav ul { display: block; }
+  .primary-nav li + li { border-top: 1px solid var(--color-dark-line); }
+  .primary-nav li + li::before { content: none; }
+  .primary-nav a { display: block; padding-block: 14px; }
+  h2 { margin-bottom: 20px; }
+  .career-list > li { grid-template-columns: minmax(0, 1fr); gap: 6px; padding-block: 22px; }
+  .career-list h3 { font-size: 18px; }
+  .career-period, .career-description { font-size: 15px; }
+  .skills-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .notebook-image { width: 190px; justify-self: end; }
+  .education-layout { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .certification-image { width: 154px; justify-self: end; }
+  .contact-section { min-height: 300px; }
+  #contact-form { padding: 18px; }
+  .back-to-top { width: 60px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  .site-footer p { padding-inline: 36px; font-size: 12px; }
+}
+
+/* 12. 동작 줄이기 설정을 사용하는 방문자 배려 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}

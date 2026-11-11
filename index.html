@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="다시, 나 — 사무행정 경험과 새로운 역량을 소개하는 여상희의 포트폴리오">
+  <title>다시, 나 — 여상희 포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <!-- 01. 스크롤해도 고정되는 헤더 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-logo"><a href="#about"><img src="images/logo.png" alt="다시, 나 — 소개로 이동" width="78" height="78"></a></h1>
+      <button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="메뉴 열기" hidden>
+        <span class="menu-icon" aria-hidden="true">☰</span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="#about">소개</a></li>
+          <li><a href="#career">경력</a></li>
+          <li><a href="#skills">역량</a></li>
+          <li><a href="#education">교육·자격</a></li>
+          <li><a href="#contact">문의</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 02. 이름과 소개가 포함된 메인 이미지를 한 장으로 사용 -->
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <h2 id="about-title" class="visually-hidden">소개</h2>
+      <img class="hero-image" src="images/m-again.jpg" width="780" height="450" fetchpriority="high"
+           alt="AGAIN Yeo. 여상희. 10년 경력의 사무행정 전문가, 다시 시작합니다. 책을 들고 걸어가는 인물 이미지.">
+    </section>
+
+    <!-- 03. 경력: 회사 / 기간 / 담당 업무 -->
+    <section id="career" class="career-section section-space" aria-labelledby="career-title">
+      <div class="container">
+        <h2 id="career-title">경력</h2>
+        <ul class="career-list">
+          <li><h3>(주)한빛상사 총무팀</h3><p class="career-period">2010.03 ~ 2013.02</p><p class="career-description">문서 관리, 비품 구매, 행사 운영</p></li>
+          <li><h3>(주)새봄유통 영업지원팀</h3><p class="career-period">2013.03 ~ 2015.02</p><p class="career-description">거래처 관리, 매출 자료 정리, 고객 응대</p></li>
+          <li><h3>(주)파수에아이</h3><p class="career-period">2015.03 ~ 2016.07</p><p class="career-description">컨설턴트(집중채용)/사업/SW개발</p></li>
+          <li><h3>(주)KB데이타시스템</h3><p class="career-period">2017.08 ~ 2018.01</p><p class="career-description">프로모션 페이지 디자인, 콘텐츠 기획 및 아이디어 제안, UI/UX 기반 디자인 개선, AI 활용 콘텐츠 제작, 유관 부서 협업, 제품 상세페이지 디자인 및 개선, 제품 이미지 보정 및 합성, 자사몰 메인/기획전/프로모션 배너 디자인</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04. 역량 -->
+    <section id="skills" class="skills-section section-space" aria-labelledby="skills-title">
+      <div class="container skills-layout">
+        <div class="skills-copy">
+          <h2 id="skills-title">역량</h2>
+          <ul class="divided-list">
+            <li>문서 작성과 자료 정리 (한글, 엑셀)</li>
+            <li>생성형 AI를 활용한 웹페이지 제작</li>
+            <li>UI/UX제작에 요구되는 그래픽, 영상, 등 편집툴</li>
+          </ul>
+        </div>
+        <img class="notebook-image" src="images/notebook.png" alt="AI 도구가 화면에 표시된 유리 질감의 노트북" width="207" height="172" loading="lazy">
+      </div>
+    </section>
+
+    <!-- 05. 교육과 자격 -->
+    <section id="education" class="education-section section-space" aria-label="교육 및 자격">
+      <div class="container education-layout">
+        <div>
+          <h2>교육</h2>
+          <ul class="divided-list">
+            <li>문서 작성과 자료 정리 (한글, 엑셀)</li>
+            <li>브랜드 상세페이지, 광고, SNS 콘텐츠 제작, 자료 정리</li>
+            <li>생성형 AI를 활용한 웹페이지 제작</li>
+          </ul>
+        </div>
+        <div>
+          <h2>자격</h2>
+          <ul class="divided-list">
+            <li>컴퓨터활용능력 2급</li>
+            <li>운전면허증 1종 보통</li>
+            <li>웹디자인 또는 디지털 콘텐츠 디자인 실무</li>
+          </ul>
+        </div>
+        <img class="certification-image" src="images/certification.png" alt="수료증 세 장이 담긴 네온라임 파일" width="154" height="162" loading="lazy">
+      </div>
+    </section>
+
+    <!-- 06. 문의 입력 폼: 전송 서비스 연결 전에는 입력 확인만 수행 -->
+    <section id="contact" class="contact-section section-space" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">문의</h2>
+        <p class="contact-intro">함께 일할 기회를 기다립니다. 아래에 문의를 남겨 주세요.</p>
+        <form id="contact-form" novalidate>
+          <label for="name">이름</label>
+          <input type="text" id="name" name="name" placeholder="홍길동" autocomplete="name" required>
+
+          <label for="email">이메일</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email" required>
+
+          <label for="message">문의 내용</label>
+          <textarea id="message" name="message" rows="5" placeholder="10자 이상 입력해 주세요." minlength="10" required></textarea>
+
+          <button type="submit" disabled>문의 보내기</button>
+          <!-- 입력 확인 결과 문구가 나타나는 곳 -->
+          <p id="form-msg" aria-live="polite" aria-atomic="true"></p>
+          <noscript><p>입력 확인 기능을 사용하려면 브라우저에서 JavaScript를 켜 주세요.</p></noscript>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 07. 화면 오른쪽 아래에 따라다니는 위로 버튼 -->
+  <a class="back-to-top" href="#top" aria-label="페이지 맨 위로 이동">
+    <img src="images/btn-top.png" alt="" width="72" height="60">
+  </a>
+
+  <footer class="site-footer">
+    <div class="container"><p>© 2026 김지은. ALL RIGHTS RESERVED.</p></div>
+  </footer>
+</body>
+</html>
